@@ -38,7 +38,7 @@ body, html {
   height: 40%;
 }
 
-.type {
+.interface {
   width: 50%;
   float: left;
 }
@@ -81,9 +81,9 @@ body, html {
     <button class="classic tablink" onclick="openPage('MicronP5', this, 'red')">Micron P5</button>
     <button class="classic tablink" onclick="openPage('MicronP5Plus', this, 'red')">Micron P5 Plus</button>
   </div> -->
-  <div id="type-select" select="">
-    <button id="3x4" class="type tablink" onclick="setType('3x4')">PCIe 3x4</button>
-    <button id="4x4" class="type tablink" onclick="setType('4x4')">PCIe 4x4</button>
+  <div id="interface-select" select="">
+    <button id="3x4" class="interface tablink" onclick="setInterface('3x4')">PCIe 3x4</button>
+    <button id="4x4" class="interface tablink" onclick="setInterface('4x4')">PCIe 4x4</button>
   </div>
   <div id="level-select" select="">
     <button id="good" class="level tablink" onclick="setLevel('good')">Good</button>
@@ -539,15 +539,15 @@ body, html {
 //   ssd.style.backgroundColor = color;
 // }
 
-function setType(type) {
-  document.getElementById("type-select").setAttribute("select", type);
-  document.querySelectorAll(".type").forEach(but => {
+function setInterface(interface) {
+  document.getElementById("interface-select").setAttribute("select", interface);
+  document.querySelectorAll(".interface").forEach(but => {
     but.style.backgroundColor = "#555";
   })
   document.querySelectorAll(".classic").forEach(but => {
     but.style.backgroundColor = "#555";
   })
-  document.getElementById(type).style.backgroundColor = "#0071C5";
+  document.getElementById(interface).style.backgroundColor = "#0071C5";
 }
 function setLevel(level) {
   document.getElementById("level-select").setAttribute("select", level);
@@ -561,7 +561,7 @@ function setLevel(level) {
 }
 
 function showGraphs(capacity) {
-  var i, tabcontent, type, level;
+  var i, tabcontent, interface, level;
   document.querySelectorAll(".capacity").forEach(but => {
     but.style.backgroundColor = "#555";
   });
@@ -573,9 +573,9 @@ function showGraphs(capacity) {
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  type = document.getElementById("type-select").getAttribute("select");
+  interface = document.getElementById("interface-select").getAttribute("select");
   level = document.getElementById("level-select").getAttribute("select");
-  document.querySelectorAll(`.${capacity}-${level}-${type}`).forEach(frame => {
+  document.querySelectorAll(`.${capacity}-${level}-${interface}`).forEach(frame => {
     frame.style.display = "block";
   });
 
