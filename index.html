@@ -14,15 +14,15 @@ body, html {
 
 /* Style tab links */
 .tablink {
+  border: 1px solid black;
   background-color: #555;
   color: white;
   float: left;
-  border: none;
   outline: none;
   cursor: pointer;
   padding: 14px 16px;
   font-size: 17px;
-  width: 11.1%;
+  width: 11.1111111111111111111111%;
   height: 11%;
 }
 
@@ -38,6 +38,25 @@ body, html {
   height: 100%;
 }
 
+.type {
+  width: 50%;
+  float: left;
+}
+
+.level {
+  width: 33.33333333%;
+  float: left;
+}
+
+.capacity {
+  width: 25%;
+  float: left;
+}
+
+.classic {
+  height: 6em;
+}
+
 #Intel660p {background-color: white}
 #Intel670p {background-color: white}
 #Samsung980 {background-color: white}
@@ -50,21 +69,38 @@ body, html {
 </style>
 </head>
 <body>
+  <!-- <div >
+  
+    <button class="classic tablink" onclick="openPage('Intel660p', this, 'red')"id="defaultOpen">Intel 660p</button>
+    <button class="classic tablink" onclick="openPage('Intel670p', this, 'red')">Intel 670p</button>
+    <button class="classic tablink" onclick="openPage('Samsung980', this, 'red')">Samsung 980</button>
+    <button class="classic tablink" onclick="openPage('WesternDigitalSN550', this, 'red')">Western Digital SN550</button>
+    <button class="classic tablink" onclick="openPage('WesternDigitalSN750', this, 'red')">Western Digital SN750</button>
+    <button class="classic tablink" onclick="openPage('WesternDigitalSN850', this, 'red')">Western Digital SN850</button>
+    <button class="classic tablink" onclick="openPage('MicronP2', this, 'red')">Micron P2</button>
+    <button class="classic tablink" onclick="openPage('MicronP5', this, 'red')">Micron P5</button>
+    <button class="classic tablink" onclick="openPage('MicronP5Plus', this, 'red')">Micron P5 Plus</button>
+  </div> -->
+  <div id="type-select" select="">
+    <button id="3x4" class="type tablink" onclick="setType('3x4')">PCIe 3x4</button>
+    <button id="4x4" class="type tablink" onclick="setType('4x4')">PCIe 4x4</button>
+  </div>
+  <div id="level-select" select="">
+    <button id="good" class="level tablink" onclick="setLevel('good')">Good</button>
+    <button id="better" class="level tablink" onclick="setLevel('better')">Better</button>
+    <button id="best" class="level tablink" onclick="setLevel('best')">Best</button>
+  </div>
+  <div>
+    <button id="g250" class="capacity tablink" onclick="showGraphs('g250')">250GB</button>
+    <button id="g500" class="capacity tablink" onclick="showGraphs('g500')">500/512 GB</button>
+    <button id="g1000" class="capacity tablink" onclick="showGraphs('g1000')">1000/1024 GB</button>
+    <button id="g2000" class="capacity tablink" onclick="showGraphs('g2000')">2000/2024 GB</button>
+  </div>
 
-<button class="tablink" onclick="openPage('Intel660p', this, 'blue')"id="defaultOpen">Intel 660p</button>
-<button class="tablink" onclick="openPage('Intel670p', this, 'blue')">Intel 670p</button>
-<button class="tablink" onclick="openPage('Samsung980', this, 'blue')">Samsung 980</button>
-<button class="tablink" onclick="openPage('WesternDigitalSN550', this, 'blue')">Western Digital SN550</button>
-<button class="tablink" onclick="openPage('WesternDigitalSN750', this, 'blue')">Western Digital SN750</button>
-<button class="tablink" onclick="openPage('WesternDigitalSN850', this, 'blue')">Western Digital SN850</button>
-<button class="tablink" onclick="openPage('MicronP2', this, 'blue')">Micron P2</button>
-<button class="tablink" onclick="openPage('MicronP5', this, 'blue')">Micron P5</button>
-<button class="tablink" onclick="openPage('MicronP5Plus', this, 'blue')">Micron P5 Plus</button>
-
-<div id="Intel660p" class="tabcontent">
-  <h2>Intel Drive: 660p</h2>
-      <div class="row">   
-        <h3>660p at 512 GB</h3>
+<!-- <div id="Intel660p" class="tabcontent">
+  <h2>Intel Drive: 660p</h2> -->
+      <div class="g500-better-3x4 row tabcontent">   
+        <h3>Intel 660p at 512 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07GBKQ9ST&domain=com"
           title="Intel 660p Series M.2 2280 512GB PCIe 3.0 x4, NVMe 3D2 QLC Internal Solid State Drive (SSD) SSDPEKNW512G8X1"
@@ -73,8 +109,8 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
-        <h3>660p at 1 TB</h3>
+      <div class="g1000-better-3x4 row tabcontent">   
+        <h3>Intel 660p at 1 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07GCL6BR4&domain=com"
           title="Intel 660p Series M.2 2280 1TB PCIe NVMe 3.0 x4 3D2, QLC Internal Solid State Drive (SSD) SSDPEKNW010T8X1"
@@ -83,7 +119,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>660p at 2 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07GCLLKDC&domain=com"
@@ -93,11 +129,11 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-</div>
+<!-- </div> -->
 
-<div id="Intel670p" class="tabcontent">
-  <h2>Intel Drive: 670p</h2>
-      <div class="row">   
+<!-- <div id="Intel670p" class="tabcontent">
+  <h2>Intel Drive: 670p</h2> -->
+      <div class="row tabcontent">   
         <h3>670p at 512 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08X4YHJ7L&domain=com"
@@ -107,7 +143,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>670p at 1 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08X4Z4R1Y&domain=com"
@@ -117,7 +153,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>670p at 2 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08X4XL71S&domain=com"
@@ -127,11 +163,11 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-</div>
+<!-- </div> -->
 
-<div id="Samsung980" class="tabcontent">
-  <h2>Samsung Drives</h2>
-      <div class="row">   
+<!-- <div id="Samsung980" class="best-4x4 tabcontent">
+  <h2>Samsung Drives</h2> -->
+      <div class="g250-best-4x4 row tabcontent">   
         <h3>980 at 250 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08V7P3SKS&domain=com"
@@ -141,7 +177,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>980 at 500 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08V7GT6F3&domain=com"
@@ -151,7 +187,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>980 at 1 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08V83JZH4&domain=com"
@@ -161,11 +197,11 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-</div>
+<!-- </div> -->
 
-<div id="WesternDigitalSN550" class="tabcontent">
-  <h2>Western Digital SN550 Drives</h2>
-      <div class="row">   
+<!-- <div id="WesternDigitalSN550" class="tabcontent">
+  <h2>Western Digital SN550 Drives</h2> -->
+      <div class="row tabcontent">   
         <h3>SN550 at 250 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07YFF8879&domain=com"
@@ -175,7 +211,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>SN550 at 500 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07YFF3JCN&domain=com"
@@ -185,7 +221,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>SN550 at 1 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07YFFX5MD&domain=com"
@@ -195,7 +231,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>SN550 at 2 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08K4NP5DQ&domain=com"
@@ -205,11 +241,11 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-</div>
+<!-- </div> -->
 
-<div id="WesternDigitalSN750" class="tabcontent">
-  <h2>Western Digital SN750 Drives</h2>
-      <div class="row">   
+<!-- <div id="WesternDigitalSN750" class="tabcontent">
+  <h2>Western Digital SN750 Drives</h2> -->
+      <div class="row tabcontent">   
         <h3>SN750 at 250 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07M64R4CR&domain=com"
@@ -219,7 +255,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>SN750 at 500 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07MH2P5ZD&domain=com"
@@ -229,7 +265,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>SN750 at 1 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07M64QXMN&domain=com"
@@ -239,7 +275,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>SN750 at 2 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07M9VXSXG&domain=com"
@@ -249,11 +285,11 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-</div>
+<!-- </div> -->
 
-<div id="WesternDigitalSN850" class="tabcontent">
-  <h2>Western Digital SN850 Drives</h2>
-      <div class="row">    
+<!-- <div id="WesternDigitalSN850" class="tabcontent">
+  <h2>Western Digital SN850 Drives</h2> -->
+      <div class="row tabcontent">    
         <h3>SN850 at 500 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08KFN1KT1&domain=com"
@@ -263,7 +299,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>SN850 at 1 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08KFS6THF&domain=com"
@@ -273,7 +309,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>SN850 at 2 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08KFRFL8F&domain=com"
@@ -283,11 +319,11 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-</div>
+<!-- </div> -->
 
-<div id="MicronP2" class="tabcontent">
-  <h2>Micron P2 Drives</h2>
-      <div class="row">    
+<!-- <div id="MicronP2" class="tabcontent">
+  <h2>Micron P2 Drives</h2> -->
+      <div class="row tabcontent">    
         <h3>P2 at 250 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B086BKGSC1&domain=com"
@@ -297,7 +333,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">    
+      <div class="row tabcontent">    
         <h3>P2 at 500 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B086BGWNY8&domain=com"
@@ -307,7 +343,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>P2 at 1 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B089DNM8LR&domain=com"
@@ -317,7 +353,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>P2 at 2 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B08GVDNTGJ&domain=com"
@@ -327,11 +363,11 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-</div>
+<!-- </div> -->
 
-<div id="MicronP5" class="tabcontent">
-  <h2>Micron P5 Drives</h2>
-      <div class="row">    
+<!-- <div id="MicronP5" class="tabcontent">
+  <h2>Micron P5 Drives</h2> -->
+      <div class="row tabcontent">    
         <h3>P5 at 250 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B0892TH611&domain=com"
@@ -341,7 +377,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">    
+      <div class="row tabcontent">    
         <h3>P5 at 500 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B087QTMXS7&domain=com"
@@ -351,7 +387,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>P5 at 1 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B087QRVVVH&domain=com"
@@ -361,7 +397,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>P5 at 2 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B0892TWDP1&domain=com"
@@ -371,11 +407,11 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-</div>
+<!-- </div> -->
 
-<div id="MicronP5Plus" class="tabcontent">
-  <h2>Micron P5 Plus Drives</h2>
-      <div class="row">    
+<!-- <div id="MicronP5Plus" class=" good-3x4 tabcontent">
+  <h2>Micron P5 Plus Drives</h2> -->
+      <div class="row tabcontent">    
         <h3>P5 Plus at 500 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B098W1NDV2&domain=com"
@@ -385,7 +421,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>P5 Plus at 1 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B098WL46RS&domain=com"
@@ -395,7 +431,7 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-      <div class="row">   
+      <div class="row tabcontent">   
         <h3>P5 Plus at 2 TB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B098WKQRDL&domain=com"
@@ -405,21 +441,63 @@ body, html {
           frameborder="0"
         ></iframe>
       </div>
-</div>
+<!-- </div> -->
 
 <script>
-function openPage(brand,ssd,color) {
-  var i, tabcontent, tablinks;
+// function openPage(brand,ssd,color) {
+//   var i, tabcontent, tablinks;
+//   tabcontent = document.getElementsByClassName("tabcontent");
+//   for (i = 0; i < tabcontent.length; i++) {
+//     tabcontent[i].style.display = "none";
+//   }
+//   tablinks = document.getElementsByClassName("tablink");
+//   for (i = 0; i < tablinks.length; i++) {
+//     tablinks[i].style.backgroundColor = "";
+//   }
+//   document.getElementById(brand).style.display = "block";
+//   ssd.style.backgroundColor = color;
+// }
+
+function setType(type) {
+  document.getElementById("type-select").setAttribute("select", type);
+  document.querySelectorAll(".type").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.querySelectorAll(".classic").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.getElementById(type).style.backgroundColor = "#0071C5";
+}
+function setLevel(level) {
+  document.getElementById("level-select").setAttribute("select", level);
+  document.querySelectorAll(".level").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.querySelectorAll(".classic").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.getElementById(level).style.backgroundColor = "#0071C5";
+}
+
+function showGraphs(capacity) {
+  var i, tabcontent, type, level;
+  document.querySelectorAll(".capacity").forEach(but => {
+    but.style.backgroundColor = "#555";
+  });
+  document.getElementById(capacity).style.backgroundColor = "#0071C5";
+  document.querySelectorAll(".classic").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
   tabcontent = document.getElementsByClassName("tabcontent");
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
-  tablinks = document.getElementsByClassName("tablink");
-  for (i = 0; i < tablinks.length; i++) {
-    tablinks[i].style.backgroundColor = "";
-  }
-  document.getElementById(brand).style.display = "block";
-  ssd.style.backgroundColor = color;
+  type = document.getElementById("type-select").getAttribute("select");
+  level = document.getElementById("level-select").getAttribute("select");
+  document.querySelectorAll(`.${capacity}-${level}-${type}`).forEach(frame => {
+    frame.style.display = "block";
+  });
+
 }
 
 // Get the element with id="defaultOpen" and click on it
