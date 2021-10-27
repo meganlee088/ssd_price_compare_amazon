@@ -86,7 +86,7 @@ body, html {
     <button class="classic tablink" onclick="openPage('MicronP5', this, 'red')">Micron P5</button>
     <button class="classic tablink" onclick="openPage('MicronP5Plus', this, 'red')">Micron P5 Plus</button>
   </div> -->
-  <div> id="location-select" select="">
+  <div id="location-select" select="">
     <button id="us" class="location tablink" onclick="setLocation('us')">US</button>
     <button id="germany" class="location tablink" onclick="setLocation('germany')">Germany</button>
     <button id="uk" class="location tablink" onclick="setLocation('uk')">UK</button>
@@ -594,7 +594,7 @@ body, html {
 // }
 
 function setLocation(interface) {
-  document.getElementById("Location-select").setAttribute("select", location);
+  document.getElementById("location-select").setAttribute("select", location);
   document.querySelectorAll(".location").forEach(but => {
     but.style.backgroundColor = "#555";
   })
@@ -650,7 +650,7 @@ function showGraphs(capacity) {
   }
   interface = document.getElementById("interface-select").getAttribute("select");
   level = document.getElementById("level-select").getAttribute("select");
-  document.querySelectorAll(`.${capacity}-${level}-${interface}`).forEach(frame => {
+  document.querySelectorAll(`.${capacity}-${level}-${interface}-${location}`).forEach(frame => {
     frame.style.display = "block";
   });
 
