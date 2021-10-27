@@ -636,7 +636,7 @@ function setLevel(level) {
 }
 
 function showGraphs(capacity) {
-  var i, tabcontent, interface, level;
+  var i, tabcontent,location,interface, level;
   document.querySelectorAll(".capacity").forEach(but => {
     but.style.backgroundColor = "#555";
   });
@@ -648,6 +648,7 @@ function showGraphs(capacity) {
   for (i = 0; i < tabcontent.length; i++) {
     tabcontent[i].style.display = "none";
   }
+  location = document.getElementById("location-select").getAttribute("select");
   interface = document.getElementById("interface-select").getAttribute("select");
   level = document.getElementById("level-select").getAttribute("select");
   document.querySelectorAll(`.${capacity}-${level}-${interface}-${location}`).forEach(frame => {
