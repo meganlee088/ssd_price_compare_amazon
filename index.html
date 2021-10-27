@@ -74,18 +74,6 @@ body, html {
 </style>
 </head>
 <body>
-  <!-- <div >
-  
-    <button class="classic tablink" onclick="openPage('Intel660p', this, 'red')"id="defaultOpen">Intel 660p</button>
-    <button class="classic tablink" onclick="openPage('Intel670p', this, 'red')">Intel 670p</button>
-    <button class="classic tablink" onclick="openPage('Samsung980', this, 'red')">Samsung 980</button>
-    <button class="classic tablink" onclick="openPage('WesternDigitalSN550', this, 'red')">Western Digital SN550</button>
-    <button class="classic tablink" onclick="openPage('WesternDigitalSN750', this, 'red')">Western Digital SN750</button>
-    <button class="classic tablink" onclick="openPage('WesternDigitalSN850', this, 'red')">Western Digital SN850</button>
-    <button class="classic tablink" onclick="openPage('MicronP2', this, 'red')">Micron P2</button>
-    <button class="classic tablink" onclick="openPage('MicronP5', this, 'red')">Micron P5</button>
-    <button class="classic tablink" onclick="openPage('MicronP5Plus', this, 'red')">Micron P5 Plus</button>
-  </div> -->
   <div id="location-select" select="">
     <button id="us" class="location tablink" onclick="setLocation('us')">US</button>
     <button id="germany" class="location tablink" onclick="setLocation('germany')">Germany</button>
@@ -109,7 +97,7 @@ body, html {
 
 <!-- <div id="Intel660p" class="tabcontent">
   <h2>Intel Drive: 660p</h2> -->
-      <div class="us-g500-good-3x4 row tabcontent">   
+      <div class="g500-good-3x4-us row tabcontent">   
         <h3>Intel 660p at 512 GB</h3>
         <iframe
           src="https://graph.keepa.com/pricehistory.png?asin=B07GBKQ9ST&domain=com"
@@ -593,16 +581,6 @@ body, html {
 //   ssd.style.backgroundColor = color;
 // }
 
-function setLocation(location) {
-  document.getElementById("location-select").setAttribute("select", location);
-  document.querySelectorAll(".location").forEach(but => {
-    but.style.backgroundColor = "#555";
-  })
-  document.querySelectorAll(".classic").forEach(but => {
-    but.style.backgroundColor = "#555";
-  })
-  document.getElementById(location).style.backgroundColor = "#0071C5";
-}
 function setLevel(level) {
   document.getElementById("level-select").setAttribute("select", level);
   document.querySelectorAll(".level").forEach(but => {
@@ -613,7 +591,6 @@ function setLevel(level) {
   })
   document.getElementById(level).style.backgroundColor = "#0071C5";
 }
-
 function setInterface(interface) {
   document.getElementById("interface-select").setAttribute("select", interface);
   document.querySelectorAll(".interface").forEach(but => {
@@ -623,6 +600,16 @@ function setInterface(interface) {
     but.style.backgroundColor = "#555";
   })
   document.getElementById(interface).style.backgroundColor = "#0071C5";
+}
+function setLocation(location) {
+  document.getElementById("location-select").setAttribute("select", location);
+  document.querySelectorAll(".location").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.querySelectorAll(".classic").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.getElementById(location).style.backgroundColor = "#0071C5";
 }
 function setLevel(level) {
   document.getElementById("level-select").setAttribute("select", level);
