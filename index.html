@@ -81,6 +81,11 @@ body, html {
     <button class="classic tablink" onclick="openPage('MicronP5', this, 'red')">Micron P5</button>
     <button class="classic tablink" onclick="openPage('MicronP5Plus', this, 'red')">Micron P5 Plus</button>
   </div> -->
+  <div> id="location-select" select="">
+    <button id="us" class="location tablink" onclick="setLocation('us')">US</button>
+    <button id="germany" class="location tablink" onclick="setLocation('germany')">Germany</button>
+    <button id="uk" class="location tablink" onclick="setLocation('uk')">UK</button>
+  </div>
   <div id="interface-select" select="">
     <button id="3x4" class="interface tablink" onclick="setInterface('3x4')">PCIe 3x4</button>
     <button id="4x4" class="interface tablink" onclick="setInterface('4x4')">PCIe 4x4</button>
@@ -90,16 +95,11 @@ body, html {
     <button id="better" class="level tablink" onclick="setLevel('better')">Better</button>
     <button id="best" class="level tablink" onclick="setLevel('best')">Best</button>
   </div>
-  <div>
+  <div> 
     <button id="g250" class="capacity tablink" onclick="showGraphs('g250')">250GB</button>
     <button id="g500" class="capacity tablink" onclick="showGraphs('g500')">500/512 GB</button>
     <button id="g1000" class="capacity tablink" onclick="showGraphs('g1000')">1000/1024 GB</button>
     <button id="g2000" class="capacity tablink" onclick="showGraphs('g2000')">2000/2024 GB</button>
-  </div>
-  <div>
-    <button id="us" class="location tablink" onclick="showGraphs('us')">US</button>
-    <button id="germany" class="location tablink" onclick="showGraphs('germany')">Germany</button>
-    <button id="uk" class="location tablink" onclick="showGraphs('uk')">UK</button>
   </div>
 
 <!-- <div id="Intel660p" class="tabcontent">
@@ -587,6 +587,27 @@ body, html {
 //   document.getElementById(brand).style.display = "block";
 //   ssd.style.backgroundColor = color;
 // }
+
+function setLocation(interface) {
+  document.getElementById("Location-select").setAttribute("select", location);
+  document.querySelectorAll(".location").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.querySelectorAll(".classic").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.getElementById(interface).style.backgroundColor = "#0071C5";
+}
+function setLevel(level) {
+  document.getElementById("level-select").setAttribute("select", level);
+  document.querySelectorAll(".level").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.querySelectorAll(".classic").forEach(but => {
+    but.style.backgroundColor = "#555";
+  })
+  document.getElementById(level).style.backgroundColor = "#0071C5";
+}
 
 function setInterface(interface) {
   document.getElementById("interface-select").setAttribute("select", interface);
